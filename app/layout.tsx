@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Sorted Labs – Build it right, build it fast",
-  description: "Production-ready web applications and AI-powered solutions. From concept to deployment, we move at speed without compromise.",
+  title: "Sorted Labs – Web apps that work",
+  description: "We build web apps that work. Fast, clean, production-ready. Next.js, TypeScript, Supabase, Vercel.",
 };
 
 export default function RootLayout({
