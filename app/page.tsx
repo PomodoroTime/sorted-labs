@@ -4,11 +4,16 @@ import { motion } from 'framer-motion'
 import { Mail } from 'lucide-react'
 import Image from 'next/image'
 
+const fadeUp = {
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] },
+}
+
 export default function Home() {
   return (
     <main className="min-h-screen bg-background text-foreground">
-      {/* Hero */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative overflow-hidden px-6">
         {/* Ambient gradient orbs */}
         <div className="absolute inset-0 overflow-hidden">
           <motion.div
@@ -43,13 +48,9 @@ export default function Home() {
           }}
         />
 
-        <div className="relative z-10 mx-auto max-w-4xl px-6 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="mb-12"
-          >
+        <div className="relative z-10 mx-auto max-w-3xl">
+          {/* Logo */}
+          <motion.div {...fadeUp} className="pt-32 sm:pt-40 mb-20">
             <Image
               src="/logo-sorted.png"
               alt="Sorted"
@@ -60,47 +61,126 @@ export default function Home() {
             />
           </motion.div>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="text-xl sm:text-2xl text-foreground max-w-2xl mx-auto mb-16 leading-relaxed font-medium"
-          >
-            We build web apps that work.
-            <br />
-            Fast, clean, production-ready.
-          </motion.p>
-
+          {/* Hero statement */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="space-y-6 text-left max-w-xl mx-auto mb-16"
+            {...fadeUp}
+            transition={{ ...fadeUp.transition, delay: 0.1 }}
+            className="mb-24"
           >
-            <p className="text-muted-foreground leading-relaxed">
-              Next.js, TypeScript, Supabase, Vercel. Modern stack, no unnecessary complexity.
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight leading-tight mb-8">
+              Your business is unique.
+              <br />
+              Your software should be too.
+            </h1>
+            <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed max-w-2xl">
+              We're a micro-SaaS studio that builds software around the way you
+              actually work — not the other way around.
             </p>
-            <p className="text-muted-foreground leading-relaxed">
-              We ship MVPs in days, not months. You get production-quality code from day one.
-            </p>
-            <p className="text-muted-foreground leading-relaxed">
-              No pitches, no filler. Just good work.
-            </p>
+          </motion.div>
+
+          {/* Approach */}
+          <motion.div
+            {...fadeUp}
+            transition={{ ...fadeUp.transition, delay: 0.2 }}
+            className="mb-24"
+          >
+            <h2 className="text-sm font-medium text-muted-foreground uppercase tracking-wider mb-10">
+              How we work
+            </h2>
+
+            <div className="space-y-12">
+              <div>
+                <h3 className="text-xl font-semibold mb-3">We listen first.</h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  Every business has its own rhythm, its own pain points, its own way
+                  of doing things. We don't show up with a template and hope it fits.
+                  We sit down, understand your world, and design around it.
+                </p>
+              </div>
+
+              <div>
+                <h3 className="text-xl font-semibold mb-3">We move fast, but we don't rush.</h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  You'll see working software quickly — not mockups, not slide decks.
+                  Real tools you can use from day one. We iterate together until
+                  it's exactly right.
+                </p>
+              </div>
+
+              <div>
+                <h3 className="text-xl font-semibold mb-3">We build things that last.</h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  Clean, modern technology that grows with you. No lock-in, no
+                  bloat, no mystery code. Software you can rely on and that your
+                  customers will love using.
+                </p>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Philosophy */}
+          <motion.div
+            {...fadeUp}
+            transition={{ ...fadeUp.transition, delay: 0.3 }}
+            className="mb-24"
+          >
+            <div className="rounded-xl border border-border/40 bg-card/30 backdrop-blur-sm p-8 sm:p-10">
+              <p className="text-lg sm:text-xl leading-relaxed font-medium">
+                "Technology should give people superpowers, not headaches.
+                We put your customers at the centre of everything we build, because
+                that's where they belong."
+              </p>
+            </div>
           </motion.div>
 
           {/* Contact */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
+            {...fadeUp}
+            transition={{ ...fadeUp.transition, delay: 0.4 }}
+            className="pb-32"
           >
-            <a
-              href="mailto:hello@sortedlabs.co.uk"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-foreground text-background hover:bg-foreground/90 transition-colors font-medium"
+            <h2 className="text-2xl sm:text-3xl font-semibold mb-4">
+              Got a problem worth solving?
+            </h2>
+            <p className="text-muted-foreground mb-10">
+              Tell us about it. No obligation, just a conversation.
+            </p>
+            <form
+              action="https://formspree.io/f/mnjbblvy"
+              method="POST"
+              className="space-y-4 max-w-lg"
             >
-              <Mail className="h-4 w-4" />
-              hello@sortedlabs.co.uk
-            </a>
+              <div className="grid sm:grid-cols-2 gap-4">
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Your name"
+                  required
+                  className="w-full px-4 py-3 rounded-lg border border-border/60 bg-card/30 backdrop-blur-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-2 focus:ring-ring/30 transition-all"
+                />
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Email address"
+                  required
+                  className="w-full px-4 py-3 rounded-lg border border-border/60 bg-card/30 backdrop-blur-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-2 focus:ring-ring/30 transition-all"
+                />
+              </div>
+              <textarea
+                name="message"
+                placeholder="What are you working on?"
+                rows={4}
+                required
+                className="w-full px-4 py-3 rounded-lg border border-border/60 bg-card/30 backdrop-blur-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-2 focus:ring-ring/30 transition-all resize-none"
+              />
+              <button
+                type="submit"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-foreground text-background hover:bg-foreground/90 transition-colors font-medium"
+              >
+                <Mail className="h-4 w-4" />
+                Send it
+              </button>
+            </form>
           </motion.div>
         </div>
       </section>
